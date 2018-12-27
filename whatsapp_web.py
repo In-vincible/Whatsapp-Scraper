@@ -20,6 +20,8 @@ def chats():
     messages = driver.find_elements_by_xpath(m_arg)  
     top_messages = messages[-1*LAST_MESSAGES:]
     message_dic[name] = [m.text for m in top_messages]
+    image = driver.find_element_by_xpath("//*[@id="main"]/header/div[1]/div/img")
+    message_dic[name].append(image.get_attribute('src'))
     print(message_dic[name])
 
 def scrape(prev):
